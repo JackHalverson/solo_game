@@ -33,6 +33,13 @@ class Room:
                 player.inventory.append(i)
                 self.items.remove(i)
                 break
+    
+    def move_item_to_room(self, item: str, player):
+        for i in player.inventory:
+            if i.name == item:
+                self.items.append(i)
+                player.inventory.remove(i)
+                break
 
     def change_item_description(self, item: str, new_description: str):
         for i in self.items:
